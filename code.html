@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      /* 公共代码 */
+      .wp {
+        position: relative;
+        border: 1px solid red;
+        width: 300px;
+        height: 300px;
+      }
+
+      .box {
+        background: green;
+
+        /* 未知子元素盒子宽高的垂直居中方法 */
+        /* absolute + transform */
+        /* 
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); 
+        */
+      }
+
+      .box.size {
+        width: 100px;
+        height: 100px;
+        /* 已知子元素盒子宽高的垂直居中方法 */
+
+        /* absolute + 负的margin */
+        /* 
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-left: -50px;
+          margin-top: -50px;
+        */
+
+        /* absolute + margin: auto */
+        /*
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          position: absolute;
+          margin: auto;
+         */
+
+        /* absolute + calc */
+        position: absolute;
+        top: calc(50% - 50px);
+        left: calc(50% - 50px);
+      }
+      .text {
+        width: 100%;
+        margin: auto;
+        float: left;
+        border: 1px solid red;
+      }
+    </style>
+    <div class="wp">
+      <div class="box size">测试</div>
+    </div>
+    <div class="text">123</div>
+  </body>
+</html>
