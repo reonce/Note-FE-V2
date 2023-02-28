@@ -142,7 +142,7 @@
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9205525816724ed792539197e22ac098~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
 
-可以看到上面我们为两个盒子的 `margin`外边距设置的是 `10px`，可结果显示两个盒子之间只有 `10px`的距离，这就导致了 `margin`塌陷问题，这时 `margin`边距的结果为最大值，而不是合，为了解决此问题可以使用 `BFC`规则（为元素包裹一个盒子形成一个完全独立的空间，做到里面元素不受外面布局影响），或者简单粗暴方法一个设置 `margin`，一个设置 `padding`。
+可以看到上面我们为两个盒子的 `margin`外边距设置的是 `10px`，可结果显示两个盒子之间只有 `10px`的距离，这就导致了 `margin`塌陷问题，这时 `margin`边距的结果为最大值，而不是合，为了解决此问题可以使用 `BFC` 规则（为元素包裹一个盒子形成一个 BFC，做到里面元素不受外面布局影响）。
 
 **修改代码**
 
@@ -161,6 +161,9 @@
             height: 100px;
             background: #000;
         }
+	p {
+	    overflow: hidden;
+	}
     </style>
 </head>
 <body>
@@ -212,7 +215,7 @@
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8224273e52044717820a99cf471b8527~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
 
-可以看到上面元素，第二个 `div`元素为 `300px`宽度，但是被第一个 `div`元素设置 `Float`脱离文档流给覆盖上去了，解决此方法我们可以把第二个 `div`元素设置为一个 `BFC`。
+可以看到上面元素，第二个 `div`元素为 `300px`宽度，但是被第一个 `div`元素设置 `Float` 脱离文档流给覆盖上去了，解决此方法我们可以把第二个 `div`元素设置为一个 `BFC`。
 
 **修改代码**
 
